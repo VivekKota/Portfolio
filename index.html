@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My GitHub Portfolio</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            transition: background-color 0.5s ease;
+        }
+
+        header {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #fff;
+        }
+
+        .greeting {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        nav {
+            background-color: #212529;
+            padding: 10px;
+            text-align: center;
+            border-bottom: 2px solid #343a40;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #6c757d;
+        }
+
+        section {
+            padding: 20px;
+            background-color: #fff;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        h2 {
+            color: #343a40;
+            text-align: center;
+        }
+
+        p {
+            color: #555;
+            text-align: center;
+        }
+
+        .education {
+            display: flex;
+            justify-content: space-around;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .circle:hover {
+            transform: scale(1.1);
+        }
+
+        .education-grid {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .education-info {
+            width: 45%;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            background-color: #f9f9f9;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .education-info h3 {
+            text-align: center;
+            background-color: #64766A;
+            color: #fff;
+            padding: 10px 0;
+            margin: 0;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .education-info .education-subsection {
+            text-align: center;
+            padding: 20px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .education-info .education-subsection h4 {
+            color: #64766A;
+            margin-bottom: 10px;
+        }
+
+        .education-info .education-subsection p {
+            margin: 0;
+        }
+
+        .education-info .coursework {
+            padding: 20px;
+            border-top: 1px solid #dee2e6;
+            text-align: center;
+        }
+
+        .education-info .coursework h4 {
+            color: #64766A;
+            margin-bottom: 10px;
+        }
+
+        .education-info .coursework ul {
+            padding: 0;
+            list-style-type: disc;
+            text-align: left;
+        }
+
+        .education-info .coursework ul li {
+            margin-bottom: 5px;
+            color: #777;
+        }
+
+        .bachelors h3 {
+            background-color: 64766A;
+        }
+
+        .masters h3 {
+            background-color: 64766A;
+        }
+
+        .project-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+        }
+
+        .project {
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .project h3 {
+            color: #64766A;
+            margin-top: 0;
+        }
+
+        .project p {
+            color: #6c757d;
+            margin-bottom: 10px;
+        }
+
+        .project a {
+            color: #fff;
+            background-color: #64766A;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .project a:hover {
+            background-color: #0056b3;
+        }
+
+        #intro {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.1);
+        }
+
+        .experience-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .experience-info {
+            width: calc(40% - 10px);
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .experience-info:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-info h3 {
+            color: #64766A;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .experience-info p {
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        .fadeIn {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Styles for Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+            justify-content: space-around;
+        }
+
+        .skill-item {
+            background-color: transparent;
+            border-radius: 50%;
+            padding: 20px;
+            text-align: center;
+            color: #000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            animation: pulse 2s infinite alternate;
+        }
+
+        .skill-item h3 {
+            color: #64766A;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        .skill-item:hover {
+            transform: scale(1.1);
+            background-color: transparent;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .education-info {
+            animation: fadeIn 0.5s ease-out;
+            transition: background-color 0.3s ease;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .education-info:hover {
+            background-color: #f0f0f0;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .award {
+
+            color: #333;
+            width: 48%;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            margin-right: 2%;
+            animation: fadeIn 1s ease;
+            transition: background-color 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .award:hover {
+            background-color: #f0f0f0;
+        }
+
+        .award h3 {
+            text-align: center;
+            background-color: #64766A;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 0;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @keyframes fadeInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes bounceInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Style for the large emoji */
+        .large-emoji {
+            position: fixed;
+            /* Fix the position of the emoji */
+            top: 50%;
+            /* Position the emoji at the middle vertically */
+            left: 20px;
+            /* Adjust the distance from the left */
+            font-size: 100px;
+            /* Adjust the size of the emoji */
+            transform: translateY(-50%);
+            /* Center the emoji vertically */
+            z-index: 9999;
+            /* Ensure the emoji is on top of other elements */
+            animation: moveUpDown 2s infinite alternate;
+            /* Add animation for movement */
+        }
+
+        /* Style for the text */
+        .above-text {
+            position: fixed;
+            /* Fix the position of the text */
+            top: 52%;
+            /* Position the text above the emoji */
+            left: 110px;
+            /* Adjust the distance from the left */
+            font-size: 20px;
+            /* Adjust the font size */
+            color: #712E1E;
+            /* Text color */
+            z-index: 9999;
+            /* Ensure the text is on top of other elements */
+            text-align: left;
+            /* Align the text to the left */
+            animation: moveUpDown 2s infinite alternate;
+            /* Add animation for movement */
+            font-weight: bold;
+            font-style: oblique;
+        }
+
+        /* Keyframes for the movement animation */
+        @keyframes moveUpDown {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-20px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <header
+        style="background-image: url('portfoliio.avif'); background-size: cover; background-position: center; color: #fff; text-align: center; padding: 50px;">
+        <h1 class="greeting">Hello! I'm Vivekananda Reddy Kota</h1>
+        <p>Dive into the wacky world of my education, my adventures in experience-land, the mad skills I've picked up
+            along the way, the wild projects I've tamed, and if you dare, make contact with this elusive creature known
+            as me!</p>
+    </header>
+
+
+    <nav>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#awards">Awards</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="intro" style="position: relative;">
+        <img src="profile.png" alt="Profile Picture" class="profile-img"
+            style="border-radius: 50%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); max-width: 100%; animation: fadeInLeft 1s ease;">
+
+        <p style="font-size: 18px; color: #555; line-height: 1.6; animation: slideInUp 1s ease;">🎉🚀 Hey there! I'm
+            Vivekananda Reddy Kota, a skilled Full Stack Developer with a wealth of experience in crafting robust web
+            applications. 🌟 From my tenure at VSION Technologies in Cedar Park, Texas to ZOHO Corporation in Chennai,
+            India, I've honed my expertise in HTML, CSS, JavaScript frameworks like React, and backend technologies such
+            as Node.js and Express.js. 🌈 My contributions have led to significant improvements in user engagement,
+            application performance, and deployment efficiency, evident in the reduction of bounce rates, enhanced
+            server-side operations security, and streamlined CI/CD pipelines. Let's connect and leverage my proficiency
+            in Full Stack Web Development to drive impactful projects forward!
+
+        </p>
+
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <div class="education-grid">
+
+            <div class="education-info masters">
+                <h3>Masters</h3>
+                <div class="education-details">
+                    <div class="education-subsection">
+                        <h4>University</h4>
+                        <p>Arizona State University, Tempe, Arizona</p>
+                    </div>
+                    <div class="education-subsection">
+                        <h4>Dates</h4>
+                        <p>Aug 2022 – May 2024</p>
+                    </div>
+                    <div class="education-subsection">
+                        <h4>Degree</h4>
+                        <p>Master of Science, Information Technology (GPA: 4.00)</p>
+                    </div>
+                </div>
+                <div class="coursework">
+                    <h4>Coursework</h4>
+                    <ul>
+                        <li>Front-end development</li>
+                        <li>UI/UX Design</li>
+                        <li>Middleware</li>
+                        <li>Cloud Architecture</li>
+                        <li>Principles of Computer Architecture</li>
+                        <li>Backend and Database Development</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="education-info bachelors">
+                <h3>Bachelors</h3>
+                <div class="education-details">
+                    <div class="education-subsection">
+                        <h4>University</h4>
+                        <p>SASTRA University, Thanjavur, India</p>
+                    </div>
+                    <div class="education-subsection">
+                        <h4>Dates</h4>
+                        <p>Sep 2017 – May 2021</p>
+                    </div>
+                    <div class="education-subsection">
+                        <h4>Degree</h4>
+                        <p>Bachelor of Technology, Computer Science Engineering (85.8%)</p>
+                    </div>
+                </div>
+                <div class="coursework">
+                    <h4>Coursework</h4>
+                    <ul>
+                        <li>Operating Systems</li>
+                        <li>Web Design</li>
+                        <li>Application development</li>
+                        <li>API End Points & Communication</li>
+                        <li>Data Structures</li>
+                        <li>Integration & Deployment</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Experience</h2>
+        <div class="experience-grid">
+            <div class="experience-info fadeIn">
+                <h3>Teaching Assistant</h3>
+                <p>Arizona State University, Tempe, AZ</p>
+                <p>Object-Oriented Programming, Professor Maryam Mohseni</p>
+                <p>Aug 2023 – Present</p>
+                <ul>
+                    <li>Aid students in comprehending the principles of object-oriented programming (OOP) in Java,
+                        focusing on advanced features such as lambda expressions, streams, and functional interfaces.
+                    </li>
+                    <li>Provide guidance on utilizing Java collections effectively, demonstrating their application in
+                        various programming scenarios and emphasizing the benefits of using Java 8 enhancements.</li>
+                    <li>Offer support in integrating database concepts into Java applications, including SQL querying,
+                        database design, and Object-Relational Mapping (ORM) techniques to enhance students'
+                        understanding of practical Java development.</li>
+                </ul>
+
+            </div>
+
+
+            <div class="experience-info fadeIn">
+                <h3>Full Stack Developer</h3>
+                <p>VSION Technologies, Cedar Park, Texas, USA</p>
+                <p>May 2023 - Aug 2023</p>
+                <ul>
+                    <li>Employed HTML5, CSS3, and Material-UI to craft visually appealing user interfaces, optimizing
+                        the user experience while ensuring scalability and maintainability through the integration of
+                        SASS for CSS management.</li>
+                    <li>Architected middleware functions in Node.js and Express.js to streamline request processing,
+                        fortify authentication mechanisms, and enhance error handling; realized a 30% reduction in
+                        processing time and increased server-side operations security.</li>
+                    <li>Leveraged the non-blocking, event-driven architecture of Node.js to orchestrate server-side
+                        operations, excelling in data flow management with Node.js streams, especially beneficial for
+                        seamless handling of file uploads and downloads.</li>
+                    <li>Pioneered the development of intuitive timelines using Material-UI, adeptly managing application
+                        state via context-API and Redux, thereby contributing to a more structured and user-friendly
+                        interface.</li>
+                </ul>
+            </div>
+            <div class="experience-info fadeIn" style="width: calc(100% - 20px); margin-bottom: 20px;">
+                <h3>Full Stack Developer</h3>
+                <p>ZOHO Corporation, Chennai, India</p>
+                <p>Nov 2021 - Aug 2022</p>
+                <ul>
+                    <li>Collaborated closely with UI/UX designers to translate design concepts into responsive web
+                        designs, employing a mix of HTML, CSS, and JavaScript frameworks such as React, which resulted
+                        in a notable 25% reduction in bounce rates, indicative of improved user engagement.</li>
+                    <li>Directed the development of innovative Single Page Applications (SPAs) through React-Router
+                        integration, enabling smooth transitions between views and enhancing user experience; drove a
+                        30% increase in average session duration and a 20% rise in user retention.</li>
+                    <li>Employed Webpack and Babel for efficient module bundling and compiling within a React
+                        architecture, integrating SASS preprocessing to streamline task configurations and enhance
+                        overall development workflow.</li>
+                    <li>Championed the conceptualization and implementation of 5 new features, leveraging visualization
+                        techniques to create visually engaging web-based visualizations, directly contributing to a
+                        substantial 15% increase in average sales.</li>
+                    <li>Pioneered scalable and maintainable web applications using Spring MVC and Spring Boot, expertly
+                        crafting REST APIs that achieved an impressive 98% deployment success rate, ensuring seamless
+                        delivery of software solutions.</li>
+                    <li>Engineered the implementation of automated CI/CD pipelines using Jenkins and Docker, leading to
+                        a 50% reduction in deployment time and a 40% increase in the frequency of software releases.
+                        This significantly enhanced overall development productivity and agility.</li>
+                    <li>Conducted unit and integration tests using JUnit and React Testing Library to ensure code
+                        quality and reliability, upholding the highest standards of software craftsmanship.</li>
+                </ul>
+            </div>
+            <div class="experience-info fadeIn">
+                <h3>Full Stack Developer</h3>
+                <p>Cognizant Technology Solutions, Hyderabad, India</p>
+                <p>Feb 2021 - Nov 2021</p>
+                <ul>
+                    <li>Developed intuitive front-end interfaces using HTML, CSS, and React JS, resulting in a
+                        significant 1.5x increase in average app engagement time and a notable 7% decrease in drop-off
+                        rates, indicating improved user satisfaction and retention.</li>
+                    <li>Engineered the seamless integration of REST API calls for user management system, implementing
+                        JWT token-based authentication for heightened security and authorization, fortifying data
+                        protection and ensuring compliance with industry standards.</li>
+                    <li>Spearheaded the proficiency in React JS by creating interactive UIs, utilizing concepts such as
+                        one-way data flow, Virtual DOM, and JSX to deliver responsive user interfaces that enhance the
+                        overall user experience.</li>
+                    <li>Architected and deployed high-performance backend server applications using Node.js and
+                        Express.js, integrating MongoDB and Mongoose for optimized data management, resulting in a 40%
+                        reduction in API response time and enhanced scalability for customer data.</li>
+                </ul>
+            </div>
+
+            <div class="experience-info fadeIn">
+                <h3>Full Stack Developer</h3>
+                <p>VSION Technologies, Hyderabad, India</p>
+                <p>May 2019 - Jan 2021</p>
+                <ul>
+                    <li>Executed the integration of Core Java advanced features, like design patterns (Factory,
+                        Template, MVC, Singleton), and multi-threading techniques, enhancing software robustness and
+                        efficiency, resulting in a 30% reduction in memory usage and better user experience.</li>
+                    <li>Leveraged Spring MVC to conceptualize and develop RESTful APIs and web applications, achieving a
+                        noteworthy 30% enhancement in response times by optimizing controller mappings and request
+                        handling processes, thereby elevating overall user satisfaction and application performance.
+                    </li>
+                    <li>Managed the migration of legacy systems to a microservices architecture using Core Java,
+                        resulting in a 25% enhancement in system scalability and manageability, alongside a 15%
+                        reduction in overall maintenance costs.</li>
+                    <li>Demonstrated expertise in developing secure and scalable enterprise applications using Servlets,
+                        JSP, and JDBC, resulting in a substantial 60% decrease in system vulnerabilities, thus ensuring
+                        the creation of highly resilient and robust software solutions in Java full-stack development.
+                    </li>
+                    <li>Championed Agile methodologies, leading TDD and BDD practices, which led to a notable 30%
+                        increase in project delivery efficiency and a 25% reduction in post-release defects, thus
+                        ensuring the consistent delivery of high-quality software solutions in iterative and
+                        collaborative environments.</li>
+                </ul>
+            </div>
+
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-item fadeIn">
+                <h3>Web Technologies/Frameworks & Programming</h3>
+                <ul>
+                    <p>HTML5, CSS3, JavaScript</p>
+                    <p>React.JS, Node.JS, Express.JS</p>
+                    <p>Redux, Bootstrap, XML, SASS</p>
+                    <p>Java, Python</p>
+                </ul>
+            </div>
+            <div class="skill-item fadeIn">
+                <h3>J2EE Tools</h3>
+                <ul>
+                    <p>JDBC, JSP, Servlets</p>
+                    <p>JSF, Hibernate, Spring Boot</p>
+                    <p>Maven, Apache Tomcat</p>
+                    <p>JUnit</p>
+
+                </ul>
+            </div>
+            <div class="skill-item fadeIn">
+                <h3>DevOps Tools</h3>
+                <ul>
+                    <p>Continuous Integration/Continuous Deployment (Jenkins)</p>
+                    <p>Version Control (Git, Gerrit)</p>
+                </ul>
+            </div>
+            <div class="skill-item fadeIn">
+                <h3>Database and Data Analysis</h3>
+                <ul>
+                    <p>SQL, NOSQL</p>
+                    <p>MongoDB, MySQL, Oracle</p>
+                    <p>SQL Server Management Studio</p>
+                </ul>
+            </div>
+
+            <div class="skill-item fadeIn">
+                <h3>Other skills</h3>
+                <ul>
+                    <p>Figma, Canva, A/B Testing, Adobe Photoshop</p>
+                    <p>AWS, Azure</p>
+                    <p>Postman</p>
+                    <p>RESTful API</p>
+                    <p>Junit</p>
+                    <p>A/B Testing</p>
+                </ul>
+            </div>
+            <div class="skill-item fadeIn">
+                <h3>Development Tools and Environments</h3>
+                <ul>
+                    <p>Visual Studio Code, Jupyter Notebooks</p>
+                    <p>Databricks, Agile Methodologies</p>
+                    <p>Software Engineering Tools (Spyder, Excel, Outlook)</p>
+                    <p>Software Development Lifecycle (SDLC)</p>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-container">
+
+            <div class="project">
+                <h3>Analysis of Feedback Form using NLP API in AWS</h3>
+                <p>Utilizing AWS NLP services, I conducted a thorough analysis of feedback forms to extract valuable
+                    insights regarding customer satisfaction levels and to pinpoint areas requiring improvement. After
+                    preprocessing the data, I employed various NLP techniques including sentiment analysis, topic
+                    modeling, entity recognition, and text classification to gain a comprehensive understanding of the
+                    feedback. By leveraging these techniques, I provided businesses with data-driven insights aimed at
+                    refining their products and services, ultimately enhancing customer satisfaction and optimizing
+                    business outcomes.
+                </p>
+
+            </div>
+
+            <div class="project">
+                <h3>Sentiment Analysis on Product Reviews</h3>
+                <p>Conducted an in-depth analysis of user reviews for multiple phone models employing a sophisticated
+                    lexicon-based approach (VADER) to discern and quantify overall sentiments for each product,
+                    including Negative, Neutral, Positive, and Compound. This strategic evaluation provided valuable
+                    insights to inform data-driven strategies and enhance product offerings.</p>
+
+            </div>
+
+
+        </div>
+    </section>
+
+    <section id="awards">
+        <h2 style="text-align: center; color: #333; padding: 10px; border-radius: 5px;">Awards</h2>
+
+        <div class="row">
+
+            <!-- First row with two boxes -->
+            <div class="award">
+                <h3>Engineering Graduate Fellowship</h3>
+                <p>May 2024</p>
+                <p>Associated with Arizona State University</p>
+                <p> This fellowship provided invaluable resources and mentorship, enabling me to deepen my expertise and
+                    contribute meaningfully to the academic community. Through rigorous academic pursuits and
+                    interdisciplinary collaboration, I expanded my technical skills, critical thinking abilities, and
+                    leadership qualities. I am grateful for the support received and remain committed to leveraging my
+                    knowledge to drive innovation and create positive impact.
+                </p>
+                <p>Field: FSE</p>
+                <p>Student type: MS students (incoming and current)</p>
+                <p>Eligibility: Domestic and international students</p>
+            </div>
+
+            <div class="award">
+                <h3>Dean's Merit Scholarship</h3>
+                <p>May 2018</p>
+                <p>Associated with SASTRA University</p>
+                <p>This Scholarship, extended to the top 5% of students at SASTRA University, stands as a
+                    prestigious acknowledgment of academic excellence and notable achievement. It highlights the
+                    recipient's exceptional dedication to scholarly pursuits and their consistent high academic
+                    performance.This Scholarship not only recognizes past accomplishments but also
+                    propels recipients toward future success and growth.</p>
+                <p>Student type: Graduate student</p>
+                <p>Eligibility: students who demonstrate outstanding academic performance.</p>
+            </div>
+        </div>
+
+        <!-- Second row with three boxes -->
+        <div class="row">
+
+            <div class="award">
+                <h3>Outstanding Achievement Award</h3>
+                <p>May 2022</p>
+                <p>At ZOHO Corporation</p>
+                <p>Recognized with the Outstanding Achievement Award for spearheading the successful implementation of
+                    five innovative features, which significantly contributed to a 15% increase in average sales.
+                    Demonstrated exceptional creativity and technical prowess in developing visually engaging web-based
+                    visualizations.</p>
+            </div>
+
+            <div class="award">
+                <h3>Excellence in Problem-Solving Award</h3>
+                <p>Aug 2021</p>
+                <p>At Cognizant Technology Solutions</p>
+                <p>Received the Excellence in Problem-Solving Award for leading the seamless integration of REST API
+                    calls for a user management system, enhancing security and authorization measures with JWT
+                    token-based authentication. Demonstrated proactive problem-solving skills and dedication to
+                    enhancing system security and data protection.</p>
+            </div>
+
+
+        </div>
+    </section>
+</body>
+
+</html>
+
+
+<section id="contact">
+    <h2>Contact Information</h2>
+    <div class="contact-icons" style="text-align: center;">
+        <a href="https://github.com/VivekKota/" target="_blank">
+            <img src="github.png" alt="GitHub" style="width: 100px; height: auto;">
+        </a>
+
+        <a href="https://www.linkedin.com/in/vivekanandareddykota/" target="_blank">
+            <img src="linkedin.png" alt="Linkedin" style="width: 100px; height: auto;">
+        </a>
+    </div>
+</section>
+</body>
+
+</html>
